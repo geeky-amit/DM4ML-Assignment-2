@@ -1,0 +1,33 @@
+dataset: movielens-100k
+source_url: https://files.grouplens.org/datasets/movielens/ml-100k.zip
+validation:
+  rating_min: 1
+  rating_max: 5
+  timestamp_min_utc: '1990-01-01T00:00:00Z'
+  reject_invalid_rows: true
+  duplicate_interaction_key: [user_id, item_id]
+preparation:
+  chronological_train_ratio: 0.8
+  split_method: global_chronological_holdout
+  timestamp_ties: entirely_to_test
+future_milestones:
+  ranking_k: [5, 10]
+  relevance_threshold: 4
+  random_seed: 42
+
+training:
+  seed: 42
+  requested_factors: 32
+  baseline: popularity_count
+  personalized: truncated_svd_arpack
+  tracking: mlflow
+  evaluation: milestone5
+
+orchestration:
+  engine: prefect_3
+  tracking_uri: sqlite:///mlflow.db
+  retries:
+    download: 2
+    deterministic_stages: 0
+  required_clean_validation: true
+  report_dir: reports/orchestration

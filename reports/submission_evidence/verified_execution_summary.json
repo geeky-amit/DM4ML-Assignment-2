@@ -1,0 +1,87 @@
+{
+  "source": "User-provided macOS terminal logs and screenshots from this conversation; independently not rerun for this submission package",
+  "dataset": {
+    "name": "MovieLens 100K",
+    "download_sha1": "cd4dcac4241c8a4ad7badc7ca635da8a69dddb83",
+    "users": 943,
+    "items": 1682,
+    "interactions": 100000,
+    "rejected": 0
+  },
+  "split": {
+    "train": 79999,
+    "test": 20001,
+    "temporal_separation": true,
+    "matrix_shape": [
+      943,
+      1682
+    ],
+    "matrix_nonzero": 79999
+  },
+  "feature_snapshot": "v1_0_0_1b3a15ee2f84b168",
+  "training": {
+    "models": [
+      "popularity",
+      "collaborative_svd"
+    ],
+    "svd_factors": 32,
+    "seed": 42
+  },
+  "evaluation": {
+    "eligible_users": 290,
+    "relevant_heldout_interactions": 11303,
+    "svd_cold_start_fallback_users": 192,
+    "popularity": {
+      "precision_at_5": 0.2586206896551727,
+      "recall_at_5": 0.053144892221650475,
+      "ndcg_at_5": 0.2759653988960433,
+      "coverage_at_5": 0.028537455410225922,
+      "diversity_at_5": 0.8436239737274233,
+      "precision_at_10": 0.22965517241379313,
+      "recall_at_10": 0.0852895521734659,
+      "ndcg_at_10": 0.25401792207084517,
+      "coverage_at_10": 0.04518430439952437,
+      "diversity_at_10": 0.8532662835249087
+    },
+    "collaborative_svd": {
+      "precision_at_5": 0.2655172413793106,
+      "recall_at_5": 0.05016617297687172,
+      "ndcg_at_5": 0.2827376963481174,
+      "coverage_at_5": 0.1450653983353151,
+      "diversity_at_5": 0.8243321018062411,
+      "precision_at_10": 0.2341379310344827,
+      "recall_at_10": 0.0870923840081716,
+      "ndcg_at_10": 0.259137859451497,
+      "coverage_at_10": 0.2051129607609988,
+      "diversity_at_10": 0.8449419813902612
+    }
+  },
+  "orchestration": {
+    "flow": "dm4ml-recommendation-end-to-end",
+    "completed_stages": [
+      "download",
+      "ingest",
+      "validate",
+      "prepare",
+      "transform",
+      "features",
+      "train",
+      "evaluate"
+    ],
+    "successful_runs": 2,
+    "reproducibility": "matched_previous_run",
+    "input_fingerprint": "8e3d8c768743d71417d86054c078c52720c248c57a3056b496adeee04d9f7ca9",
+    "output_fingerprint": "6d1b063fe79141dcd6657c2ef11231be7d2acec485678d741e6b308b136ba926"
+  },
+  "tests": {
+    "milestone5_mac_screenshot_passed": 48,
+    "milestone6_packaging_tests_passed": 56,
+    "milestone6_mac_test_screenshot_supplied": false
+  },
+  "missing": [
+    "Public GitHub repository URL",
+    "Actual screenshot of Prefect Completed flow/task graph",
+    "MLflow dashboard screenshot (recommended)",
+    "Milestone 6 pytest screenshot (recommended)"
+  ]
+}

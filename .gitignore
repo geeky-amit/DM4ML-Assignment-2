@@ -1,0 +1,48 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+# Downloaded / generated datasets (do not redistribute)
+data/raw/*
+!data/raw/.gitkeep
+data/staged/*
+!data/staged/.gitkeep
+data/validated/*
+!data/validated/.gitkeep
+data/errors/*
+!data/errors/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/features/*
+!data/features/.gitkeep
+models/*
+!models/.gitkeep
+# Generated evidence / screenshots
+reports/validation/*.json
+reports/validation/*.csv
+*.log
+.env
+
+reports/preparation/*.json
+reports/transformation/*.json
+reports/features/*.json
+reports/features/*.csv
+
+# MLflow local tracking
+mlruns/
+mlartifacts/
+mlflow.db
+reports/training/*.json
+
+# Generated evaluation artifacts (capture separate evidence PDF screenshots)
+reports/evaluation/*.json
+reports/evaluation/*.csv
+reports/evaluation/*.png
+mlflow.db-*
+
+# Prefect / orchestration runtime evidence
+.prefect/
+reports/orchestration/*.json
+reports/orchestration/runs/
